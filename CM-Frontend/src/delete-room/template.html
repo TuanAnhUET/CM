@@ -1,0 +1,81 @@
+<div id="page-wrapper">
+  <div class="header"> 
+    <h1 class="page-header">
+      Xóa phòng học 
+  </h1>
+  <ol class="breadcrumb">
+      <li><a href="">Admin</a></li>
+      <li><a href="">Room</a></li>
+      <li class="active">Delete</li>
+  </ol> 
+
+</div>
+<div id="page-inner">
+
+    <div class="row">
+
+      <form role="form" class="content">
+        <h2 class="text-center">Xóa phòng học</h2>
+        <div class="form-group">
+            <label>Chọn mã phòng</label>
+            <select class="form-control" ng-model="self.IDRoom" 
+            ng-click="self.getInfo(self.IDRoom)">
+            <option ng-repeat="r in self.listRoom" >{{r.IDRoom}}</option>
+        </select>
+    </div>
+    <fieldset disabled="">
+        <div class="form-group">
+          <label>Tên phòng</label>
+          <input class="form-control" value="{{self.name}}" >
+      </div>
+      <div class="form-group">
+          <label>Địa chỉ</label>
+          <input class="form-control" value="{{self.address}}">
+      </div>
+      <div class="form-group">
+        <label>Tình trạng phòng</label>
+        <select class="form-control">
+            <option value="{{self.statusRoom}}">{{self.statusRoom}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <label>Sức chứa</label>
+      <input class="form-control" value="{{self.capacity}}">
+  </div>
+</fieldset>
+
+<div class="panel-body">
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        Xóa phòng học
+    </button>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Thông báo</h4>
+                </div>
+                <div class="modal-body">
+                    Bạn có chắc muốn xóa phòng học này?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-primary" ng-click="self.deleteRoom()">Xác nhận</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- End Modals-->
+
+</form>
+
+</div>
+
+
+</div>
+
+<!-- /. PAGE INNER  -->
+<footer><p>Đại học Công nghệ - ĐHQGHN</p></footer>
+</div>

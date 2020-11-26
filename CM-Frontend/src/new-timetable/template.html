@@ -1,0 +1,79 @@
+<div id="page-wrapper">
+  <div class="header"> 
+    <h1 class="page-header">
+      Tạo thời khóa biểu
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="">Admin</a></li>
+      <li><a href="">Timetable</a></li>
+      <li class="active">New</li>
+    </ol> 
+
+  </div>
+  <div id="page-inner">
+    <div class="alert alert-{{self.typeMessage}}" >
+      <strong>{{self.message}}</strong>
+    </div>
+
+    <div class="row">
+
+      <form role="form" class="content">
+        <h2 class="text-center">Tạo thời khóa biểu</h2>
+        <fieldset disabled="">
+          <div class="form-group">
+            <label for="disabledSelect">Học kỳ hiện tại</label>
+            <select id="disabledSelect" class="form-control" >
+              <option value="{{self.semesterName}}">{{self.semesterName}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Mã học phần</label>
+            <input class="form-control" required="" ng-model="self.CourseName" placeholder="" style="text-transform: uppercase;">
+          </div>
+          <div class="form-group">
+            <label>Giảng viên</label>
+            <input class="form-control" required="" ng-model="self.LecturerName" placeholder="">
+          </div>
+        </fieldset>
+        <div class="form-group">
+          <label>Chọn mã môn học</label>
+          <select class="form-control" ng-model="self.IDCourse" ng-click="self.getCourseInfo()">
+            <option ng-repeat="t in self.listTimeslot">{{t.IDCourse}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Chọn phòng học</label>
+          <select class="form-control" ng-model="self.IDRoom" ng-click="">
+              <option ng-repeat="r in self.listRoom" value="{{r.IDRoom}}">{{r.RoomName}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Chọn thứ</label>
+          <select class="form-control" ng-model="self.day" ng-click="">
+            <option value="2">Thứ hai</option>
+            <option value="3">Thứ ba</option>
+            <option value="4">Thứ tư</option>
+            <option value="5">Thứ năm</option>
+            <option value="6">Thứ sáu</option>
+            <option value="7">Thứ bảy</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Tiết đầu</label>
+          <input class="form-control" required="" ng-model="self.tietbd" placeholder="">
+        </div>
+        <div class="form-group">
+          <label>Tiết cuối</label>
+          <input class="form-control" required="" ng-model="self.tietkt" placeholder="">
+        </div>
+        <button type="submit" class="btn btn-primary" ng-click="self.addTimeslot()">Submit </button>
+        <button type="reset" class="btn btn-default">Reset </button>
+      </form>
+
+
+      <!-- /. PAGE INNER  -->
+      <footer><p>Đại học Công nghệ - ĐHQGHN</p></footer>
+    </div>
+  </div>
+</div>

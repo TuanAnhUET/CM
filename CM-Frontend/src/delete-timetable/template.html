@@ -1,0 +1,77 @@
+<div id="page-wrapper">
+  <div class="header"> 
+    <h1 class="page-header">
+      Xóa thời khóa biểu
+  </h1>
+  <ol class="breadcrumb">
+      <li><a href="">Admin</a></li>
+      <li><a href="">Timetable</a></li>
+      <li class="active">Delete</li>
+  </ol> 
+
+</div>
+<div id="page-inner">
+    <div class="alert alert-{{self.typeMessage}}" >
+        <strong>{{self.message}}</strong>
+    </div>
+
+    <div class="row">
+
+      <form role="form" class="content">
+        <h2 class="text-center">Xóa thời khóa biểu</h2>
+        <fieldset disabled="">
+            <div class="form-group">
+                <label for="disabledSelect">Học kỳ hiện tại</label>
+                <select id="disabledSelect" class="form-control" >
+                    <option value="{{self.semesterName}}">{{self.semesterName}}</option>
+                </select>
+            </div>
+        </fieldset>
+        <div class="form-group">
+            <label>Chọn mã môn học</label>
+            <select class="form-control" ng-model="self.CourseName" ng-click="self.getInfo()">
+                <option ng-repeat="t in self.listTimeslot track by $index" >{{t.CourseName}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Chọn thứ</label>
+            <select class="form-control" ng-model="self.thu" ng-change="self.getPeriod()" >
+                <option value="2">Thứ Hai</option>
+                <option value="3">Thứ Ba</option>
+                <option value="4">Thứ Tư</option>
+                <option value="5">Thứ Năm</option>
+                <option value="6">Thứ Sáu</option>
+                <option value="7">Thứ Bảy</option>
+            </select>
+        </div>
+    <fieldset disabled="">
+      <div class="form-group">
+          <label>Tiết đầu</label>
+          <input class="form-control"  required="" ng-model="self.tietbd" placeholder="">
+      </div>
+
+      <div class="form-group">
+          <label>Tiết cuối</label>
+          <input class="form-control"  required="" ng-model="self.tietkt" placeholder="">
+      </div>
+
+      <div class="form-group">
+            <label>Phòng học</label>
+            <select class="form-control" ng-model="self.RoomName" ng-click="self.getRoom()">
+                <option ng-repeat="r in self.listRoom">{{r.RoomName}}</option>
+            </select>
+        </div>
+      </fieldset>
+      <button type="submit" class="btn btn-primary" ng-click="self.deleteTimeslot()">Submit </button>
+      <button type="reset" class="btn btn-default">Reset </button>
+  </form>
+
+</div>
+
+
+</div>
+
+<!-- /. PAGE INNER  -->
+<footer><p>Đại học Công nghệ - ĐHQGHN</p></footer>
+</div>

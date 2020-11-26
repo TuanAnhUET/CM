@@ -1,0 +1,37 @@
+<div id="page-wrapper">
+  <div class="header"> 
+    <h1 class="page-header">
+      Upload dữ liệu
+  </h1>
+  <ol class="breadcrumb">
+      <li><a href="">Admin</a></li>
+      <li><a href="">File</a></li>
+      <li class="active">Upload</li>
+  </ol> 
+
+</div>
+<div id="page-inner">
+
+
+    <div class="row">
+
+    <form method='post' action='http://localhost:3000/admin/importFromCSV' enctype="multipart/form-data">
+        <h2 class="text-center">Upload dữ liệu</h2>
+
+        <h3>Choose file and model of file and submit!</h3>
+        <br>
+
+        <input type='file' name='file'>
+        <input type="text" name='model' placeholder="Ex: room">
+        <button type="submit" ng-click="self.upload()" class="btn btn-primary">Upload</button> 
+    </form>
+    
+
+</div>
+
+
+</div>
+
+<!-- /. PAGE INNER  -->
+<footer><p>Đại học Công nghệ - ĐHQGHN</p></footer>
+</div>

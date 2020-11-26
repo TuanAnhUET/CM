@@ -1,0 +1,259 @@
+<div id="page-wrapper">
+    <div class="header"> 
+        <h1 class="page-header">
+            Dashboard <small>Trang chủ</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="">Admin</a></li>
+            <li><a href="">Dashboard</a></li>
+            <li class="active"></li>
+        </ol> 
+
+    </div>
+    <div id="page-inner">
+
+        <div class="row">
+            <div class="col-md-3 col-sm-12 col-xs-12">
+                <div class="panel panel-primary text-center no-boder blue">
+                    <div class="panel-left pull-left blue">
+                        <i class="fas fa-school fa-5x"></i>
+
+                    </div>
+                    <div class="panel-right">
+                        <h3>{{self.totalRoom}}</h3>
+                        <strong>Phòng học</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-12 col-xs-12">
+                <div class="panel panel-primary text-center no-boder blue">
+                  <div class="panel-left pull-left blue">
+                    <i class="fas fa-book fa-5x"></i>
+                </div>
+
+                <div class="panel-right">
+                    <h3>{{self.totalCourse}}</h3>
+                    <strong>Lớp học</strong>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-12 col-xs-12">
+            <div class="panel panel-primary text-center no-boder blue">
+                <div class="panel-left pull-left blue">
+                    <i class="fas fa-chalkboard-teacher fa-5x"></i>
+
+                </div>
+                <div class="panel-right">
+                   <h3>{{self.totalLecturer}}</h3>
+                   <strong>Giảng viên</strong>
+
+               </div>
+           </div>
+       </div>
+       <div class="col-md-3 col-sm-12 col-xs-12">
+        <div class="panel panel-primary text-center no-boder blue">
+            <div class="panel-left pull-left blue">
+                <i class="fas fa-graduation-cap fa-5x"></i>
+
+            </div>
+            <div class="panel-right">
+                <h3>{{self.totalStudent}}</h3>
+                <strong>Sinh viên</strong>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+
+
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-md-12">
+        <!-- Advanced Tables -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+             Danh sách phòng học
+         </div>
+         <div class="panel-body">
+            <div class="bs-component">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label >Search</label>
+                        <input type="text" ng-model="roomSearchKey" class="form-control" placeholder="Search">
+                    </div>
+                </form>
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th ng-click="self.sort('self.IDRoom')">ID
+                                <span class="glyphicon sort-icon" ng-show="self.sortKey=='self.IDRoom'" ng-class="{'glyphicon-chevron-up':self.reverse,'glyphicon-chevron-down':!self.reverse}"></span>
+                            </th>
+                            <th ng-click="self.sort('self.RoomName')">Tên
+                                <span class="glyphicon sort-icon" ng-show="self.sortKey=='self.RoomName'" ng-class="{'glyphicon-chevron-up':self.reverse,'glyphicon-chevron-down':!self.reverse}"></span>
+                            </th>
+                            <th ng-click="self.sort('self.Address')">Địa chỉ
+                                <span class="glyphicon sort-icon" ng-show="self.sortKey=='self.Address'" ng-class="{'glyphicon-chevron-up':self.reverse,'glyphicon-chevron-down':!self.reverse}"></span>
+                            </th>
+                            <th ng-click="self.sort('self.InUse')">Tình trạng
+                                <span class="glyphicon sort-icon" ng-show="self.sortKey=='self.InUse'" ng-class="{'glyphicon-chevron-up':self.reverse,'glyphicon-chevron-down':!self.reverse}"></span>
+                            </th>
+                            <th ng-click="self.sort('self.Capacity')">Sức chứa
+                                <span class="glyphicon sort-icon" ng-show="self.sortKey=='self.Capacity'" ng-class="{'glyphicon-chevron-up':self.reverse,'glyphicon-chevron-down':!self.reverse}"></span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr dir-paginate="room in self.listRoom|filter:roomSearchKey|itemsPerPage:10">
+                            <td>{{room.IDRoom}}</td>
+                            <td>{{room.RoomName}}</td>
+                            <td>{{room.Address}}</td>
+                            <td>{{room.InUse}}</td>
+                            <td>{{room.Capacity}}</td> 
+                        </tr>
+                    </tbody>
+                </table> 
+                <dir-pagination-controls
+                max-size="10"
+                direction-links="true"
+                boundary-links="true" >
+            </dir-pagination-controls>
+        </div>
+
+    </div>
+</div>
+<!--End Advanced Tables -->
+</div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <!-- Bảng giảng viên -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+             Danh sách giảng viên
+         </div>
+         <div class="panel-body">
+            <div class="bs-component">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label >Search</label>
+                        <input type="text" ng-model="lecturerSearchKey" class="form-control" placeholder="Search">
+                    </div>
+                </form>
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th ng-click="self.sort('self.IDLecturer')">ID
+                                <span class="glyphicon sort-icon" ng-show="self.sortKey=='self.IDLecturer'" ng-class="{'glyphicon-chevron-up':self.reverse,'glyphicon-chevron-down':!self.reverse}"></span>
+                            </th>
+                            <th ng-click="self.sort('self.Name')">Tên
+                                <span class="glyphicon sort-icon" ng-show="self.sortKey=='self.Name'" ng-class="{'glyphicon-chevron-up':self.reverse,'glyphicon-chevron-down':!self.reverse}"></span>
+                            </th>
+                            <th ng-click="self.sort('self.DoB')">DoB
+                                <span class="glyphicon sort-icon" ng-show="self.sortKey=='self.DoB'" ng-class="{'glyphicon-chevron-up':self.reverse,'glyphicon-chevron-down':!self.reverse}"></span>
+                            </th>
+                            <th ng-click="self.sort('self.Phone')">Số điện thoại
+                                <span class="glyphicon sort-icon" ng-show="self.sortKey=='self.Phone'" ng-class="{'glyphicon-chevron-up':self.reverse,'glyphicon-chevron-down':!self.reverse}"></span>
+                            </th>
+                            <th ng-click="self.sort('self.Email')">Email
+                                <span class="glyphicon sort-icon" ng-show="self.sortKey=='self.Email'" ng-class="{'glyphicon-chevron-up':self.reverse,'glyphicon-chevron-down':!self.reverse}"></span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr dir-paginate="l in self.listLecturer|filter:lecturerSearchKey|itemsPerPage:7">
+                            <td>{{l.IDLecturer}}</td>
+                            <td>{{l.Name}}</td>
+                            <td>{{l.DoB}}</td>
+                            <td>{{l.Phone}}</td>
+                            <td>{{l.Email}}</td> 
+                        </tr>
+                    </tbody>
+                </table> 
+                <dir-pagination-controls
+                max-size="7"
+                direction-links="true"
+                boundary-links="true" >
+            </dir-pagination-controls>
+        </div>
+
+    </div>
+</div>    
+<!--End Subject Tables -->
+</div>
+
+<div class="col-md-6">
+    <!-- Bảng giảng viên -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+         Danh sách môn học
+     </div>
+     <div class="panel-body">
+        <div class="bs-component">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label >Search</label>
+                    <input type="text" ng-model="courseSearchKey" class="form-control" placeholder="Search">
+                </div>
+            </form>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th ng-click="self.sort('self.IDCourse')">ID
+                            <span class="glyphicon sort-icon" ng-show="self.sortKey=='self.IDCourse'" ng-class="{'glyphicon-chevron-up':self.reverse,'glyphicon-chevron-down':!self.reverse}"></span>
+                        </th>
+                        <th ng-click="self.sort('self.CourseName')">Mã học phần
+                            <span class="glyphicon sort-icon" ng-show="self.sortKey=='self.CourseName'" ng-class="{'glyphicon-chevron-up':self.reverse,'glyphicon-chevron-down':!self.reverse}"></span>
+                        </th>
+                        <th ng-click="self.sort('self.SubjectName')">Môn học
+                            <span class="glyphicon sort-icon" ng-show="self.sortKey=='self.SubjectName'" ng-class="{'glyphicon-chevron-up':self.reverse,'glyphicon-chevron-down':!self.reverse}"></span>
+                        </th>
+                        <th ng-click="self.sort('self.LecturerName')">Giảng viên
+                            <span class="glyphicon sort-icon" ng-show="sortKey=='self.LecturerName'" ng-class="{'glyphicon-chevron-up':self.reverse,'glyphicon-chevron-down':!self.reverse}"></span>
+                        </th>
+                        <th ng-click="self.sort('self.IDSemester')">Kỳ học
+                            <span class="glyphicon sort-icon" ng-show="self.sortKey=='self.IDSemester'" ng-class="{'glyphicon-chevron-up':self.reverse,'glyphicon-chevron-down':!self.reverse}"></span>
+                        </th>
+                        <th ng-click="self.sort('self.Note')">Ghi chú
+                            <span class="glyphicon sort-icon" ng-show="self.sortKey=='self.Note'" ng-class="{'glyphicon-chevron-up':self.reverse,'glyphicon-chevron-down':!self.reverse}"></span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr dir-paginate="c in self.listCourse|filter:courseSearchKey|itemsPerPage:7">
+                        <td>{{c.IDCourse}}</td>
+                        <td>{{c.CourseName}}</td>
+                        <td>{{c.SubjectName}}</td>
+                        <td>{{c.Lecturer.Name}}</td>
+                        <td>{{c.Semester.SemesterName}}</td>
+                        <td>{{c.Note}}</td> 
+                    </tr>
+                </tbody>
+            </table> 
+            <dir-pagination-controls
+            max-size="7"
+            direction-links="true"
+            boundary-links="true" >
+        </dir-pagination-controls>
+    </div>
+
+</div>
+</div>    
+<!--End Subject Tables -->
+</div>
+
+</div>   
+
+
+
+</div>
+
+<!-- /. PAGE INNER  -->
+<footer><p>Đại học Công nghệ - ĐHQGHN</p></footer>
+</div>

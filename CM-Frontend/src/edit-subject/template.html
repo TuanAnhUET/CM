@@ -1,0 +1,70 @@
+<div id="page-wrapper">
+  <div class="header"> 
+    <h1 class="page-header">
+      Sửa môn học 
+  </h1>
+  <ol class="breadcrumb">
+      <li><a href="">Admin</a></li>
+      <li><a href="">Subject</a></li>
+      <li class="active">Edit</li>
+  </ol> 
+
+</div>
+<div id="page-inner">
+    <div class="alert alert-{{self.typeMessage}}" >
+        <strong>{{self.message}}</strong>
+    </div>
+
+    <div class="row">
+
+      <form role="form" class="content">
+        <h2 class="text-center">Chỉnh sửa môn học</h2>
+        <fieldset disabled="">
+            <div class="form-group">
+                <label for="disabledSelect">Học kỳ hiện tại</label>
+                <select id="disabledSelect" class="form-control" >
+                    <option value="{{self.semesterName}}">{{self.semesterName}}</option>
+                </select>
+            </div>
+        </fieldset>
+        <div class="form-group">
+            <label>Chọn mã môn học</label>
+            <select class="form-control" ng-model="self.Course" ng-click="self.getCourseInfo()">
+                <option ng-repeat="c in self.listCourse">{{c.IDCourse}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Sửa giảng viên</label>
+            <select class="form-control" ng-model="self.lecturerName" ng-click="self.getInfoLecturer()">
+                <option ng-repeat="l in self.listLecturer">{{l.Name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+          <label>Sửa mã lớp</label>
+          <input class="form-control" required="" ng-model="self.CourseName" placeholder="" style="text-transform: uppercase;">
+      </div>
+      <div class="form-group">
+          <label>Sửa lớp</label>
+          <input class="form-control"  required="" ng-model="self.SubjectName" placeholder="">
+      </div>
+      <div class="form-group">
+          <label>Sĩ số</label>
+          <input class="form-control" type="number" required="" ng-model="self.TotalStudent" placeholder="">
+      </div>
+      <div class="form-group">
+          <label>Ghi chú</label>
+          <input class="form-control"  required="" ng-model="self.Note" placeholder="">
+      </div>
+
+      <button type="submit" class="btn btn-primary" ng-click="self.editCourse()">Submit </button>
+      <button type="reset" class="btn btn-default">Reset </button>
+  </form>
+
+</div>
+
+
+</div>
+
+<!-- /. PAGE INNER  -->
+<footer><p>Đại học Công nghệ - ĐHQGHN</p></footer>
+</div>
